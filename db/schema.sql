@@ -1,4 +1,4 @@
-### Schema
+-- Schema 
 
 Create DATABASE burgers_db;
 USE burgers_db;

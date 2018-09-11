@@ -10,14 +10,13 @@ var orm = {
         cb(result);
       });
     },
-    insertOne: function(table, cols, vals, showAll) {
+    insertOne: function(table, cols, vals, cb) {
       var queryString = "INSERT INTO " + table;
   
       queryString += " (";
       queryString += cols.toString();
       queryString += ") ";
       queryString += "VALUES (";
-    //   queryString += printQuestionMarks(vals.length);
       queryString += ") ";
   
       console.log(queryString);
@@ -27,17 +26,17 @@ var orm = {
           throw err;
         }
   
-        showAll(result);
+        cb(result);
       });
     },
-    // An example of objColVals would be {name: panther, sleepy: true}
-    // update: function(table, objColVals, condition, cb) {
+    // An example of objColVals would be {burger_name: Big Baconator, devoured: true}
+    // updateOne: function(table, objColVals, devoured, cb) {
     //   var queryString = "UPDATE " + table;
   
     //   queryString += " SET ";
     //   queryString += objToSql(objColVals);
     //   queryString += " WHERE ";
-    //   queryString += condition;
+    //   queryString += devoured;
   
     //   console.log(queryString);
     //   connection.query(queryString, function(err, result) {
@@ -50,6 +49,6 @@ var orm = {
     // }
   };
   
-  // Export the orm object for the model (cat.js).
+  // Export the orm object for the model (burger.js).
   module.exports = orm;
   
