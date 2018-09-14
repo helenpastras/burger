@@ -29,26 +29,24 @@ var orm = {
         cb(result);
       });
     },
-    // An example of objColVals would be {burger_name: Big Baconator, devoured: true}
-    // updateOne: function(table, objColVals, devoured, cb) {
-    //   var queryString = "UPDATE " + table;
-  
-    //   queryString += " SET ";
-    //   queryString += objToSql(objColVals);
-    //   queryString += " WHERE ";
-    //   queryString += devoured;
-  
-    //   console.log(queryString);
-    //   connection.query(queryString, function(err, result) {
-    //     if (err) {
-    //       throw err;
-    //     }
-  
-    //     cb(result);
-    //   });
-    // }
+    updateOne: function(table, objColVals, condition, cb) {
+      var queryString = "UPDATE " + table;
+
+      queryString += " SET ";
+      queryString += objToSql(objColVals);
+      queryString += " WHERE ";
+      queryString += condition;
+
+      console.log(queryString);
+
+      connection.query(queryString, function(err, res) {
+          if (err) {
+              throw err;
+          }
+          cb(res);
+      });
+    },
   };
-  
+    
   // Export the orm object for the model (burger.js).
   module.exports = orm;
-  
