@@ -4,8 +4,8 @@ that will submit the user input into the database. --}}
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
         <center>
-            <h1 class="display-4">Good Burger</h1>
-            <p class="lead">Welcome to Good Burger, home of the Good Burger! Can I take your order?</p>
+            <h1 class="display-4">Yum-Burger</h1>
+            <p class="lead">Welcome to Yum-Burger, home of the Yummy Burgers! Can I take your order?</p>
         </center>
     </div>
 </div>
@@ -13,11 +13,11 @@ that will submit the user input into the database. --}}
     <div class="row">
         <div class="col">
             <center>
-                <h3>Burger's Available:</h3>
+                <h3>Burgers Available:</h3>
                 <ul class="list-group">
                     {{#each burgers}}
                     {{#unless devoured}}
-                    {{> burgered devoured=true}}
+                    {{!-- {{> burgers/burger-block devoured=true}} --}}
                     {{/unless}}
                     {{/each}}
                 </ul>
@@ -37,11 +37,11 @@ that will submit the user input into the database. --}}
         </div>
         <div class="col">
             <center>
-                <h3>Burger's Sold:</h3>
+                <h3>Burgers Sold:</h3>
                 <ul class="list-group">
                     {{#each burgers}}
                     {{#if this.devoured}}
-                    {{> burgered devoured=false}}
+                    {{!-- {{> burgers/burger-block devoured=false}} --}}
                     {{/if}}
                     {{/each}}
                 </ul>
